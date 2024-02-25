@@ -1,0 +1,85 @@
+[
+    {
+        "outletName":"Martinoz Requests",
+        "outletInstance":"Martinoz Pizza",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Kachori",
+        "productQuantity":"1"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Winnies",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Mango Juice with saffron",
+        "productQuantity":"1",
+        "modifierFamily":"Family of Wines",
+        "modifierName":"White Wine C"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Riverside Bistro",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Classic Cheeseburger",
+        "productQuantity":"1",
+        "modifierFamily":"Choice of Cheese",
+        "modifierQuantity":"1",
+        "modifierName":"Swiss"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Riverside Bistro",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Spinach Salad",
+        "productQuantity":"1",
+        "addonName":"Avocado"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Riverside Bistro",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Classic Cheeseburger",
+        "productQuantity":"1",
+        "modifierFamily":"Choice of Cheese",
+        "modifierName":"Swiss",
+        "addonName":"Avocado"
+    },
+    {
+        "outletName":"Martinoz Requests",
+        "outletInstance":"Martinoz Pizza",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Kachori",
+        "productQuantity":"5",
+        "modifierFamily":"Cutney",
+        "modifierQuantity":"3",
+        "modifierName":"Greeen Cutney"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Riverside Bistro",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Greek Salad",
+        "productQuantity":"4",
+        "addonName":"Avocado",
+        "addonQuantity":"3"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Riverside Bistro",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Classic Cheeseburger",
+        "productQuantity":"4",
+        "modifierFamily":"Choice of Cheese",
+        "modifierName":"Swiss",
+        "modifierQuantity":"3",
+        "addonName":"Avocado",
+        "addonQuantity":"3"
+    }
+]
