@@ -95,7 +95,6 @@ public class OutletProductOrdering extends AndroidActions{
 		addToCartButtonLocator.click();
 	}
 
-	@SuppressWarnings("deprecation")
 	public void tapOnCartButton(int x, int y) {
         tapOnCoordinate(x,y);
         
@@ -118,7 +117,8 @@ public class OutletProductOrdering extends AndroidActions{
 	
 	public void getBookingList() throws InterruptedException {
 		System.out.println("size  "+bookingListLocator.size());
-		bookingListLocator.get(0).click();
+		int s=bookingListLocator.size();
+		bookingListLocator.get(s-1).click();
 	}
 	
 	public void withoutAddonAndModifierBookingVerification(String unitNo,String residentName, String productName, int productQuantity, String bookFrom) {
@@ -169,21 +169,90 @@ public class OutletProductOrdering extends AndroidActions{
 							System.out.println("getmodifierName "+getmodifierName);
 							radioButtonSelector.get(temp2).click();
 							int temp3=1;
+							
 							while(temp3<modifierQuantity) {
-								
 								driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/plus\"])[2]")).click();
 								temp3++;
 							}
 							break;
 						}
+						if(!superChildElements.get(temp1).getText().contains("$")) {
 						temp2++;
-						temp1++;
+						}
+						
+						temp1+=1;
 					}
 				break;
 			}
 			temp++;
 		}
 		}
+	
+	
+	
+	
+	
+	public void addQuantityModifiers1(String modifierFamily, String modifierName, int modifierQuantity) throws InterruptedException {
+		WebElement parentElement=driver.findElement(By.id("com.paragon.sensonicstaff:id/modifier_family_rv"));
+		List<WebElement> childElement = parentElement.findElements(By.className("android.view.ViewGroup"));
+		int modifierFamilyNo = childElement.size();
+		System.out.println("\nmodifierFamilyNo "+modifierFamilyNo);
+		int temp=0;
+		while(temp<modifierFamilyNo) {
+			List<WebElement> superChildElements = childElement.get(temp).findElements(By.className("android.widget.TextView"));
+			List<WebElement> radioButtonSelector = childElement.get(temp).findElements(By.className("android.widget.ImageView"));
+			List<WebElement> Elements1 = childElement.get(temp).findElements(By.className("androidx.recyclerview.widget.RecyclerView"));
+			
+			
+			int s1=superChildElements.size();
+			int s2=radioButtonSelector.size();
+
+			System.out.println("\ns1 "+s1);
+			System.out.println("\ns2 "+s2);
+			
+			System.out.println(superChildElements.get(0).getText());
+			if(superChildElements.get(0).getText().contains(modifierFamily)) {
+			int temp1=2;
+			int temp2=0;
+					while(temp1<s1) {
+						String getmodifierName=superChildElements.get(temp1).getText();
+						if(getmodifierName.contains(modifierName)) {
+							System.out.println("getmodifierName "+getmodifierName);
+							radioButtonSelector.get(temp2).click();
+							int temp3=1;
+							
+							List<WebElement> counterSelector = childElement.get(temp).findElements(By.className("android.widget.LinearLayout"));
+							int s4=counterSelector.size();
+							List<WebElement> counterPlusSelector=counterSelector.get(7).findElements(By.className("android.widget.ImageView"));
+						
+							
+							while(temp3<modifierQuantity) {
+								System.out.println("size s4= "+s4);
+								counterPlusSelector.get(1).click();
+//								driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/plus\"])[2]")).click();
+								temp3++;
+							}
+							break;
+						}
+						if(!superChildElements.get(temp1).getText().contains("$")) {
+						temp2++;
+						}
+						
+						temp1+=1;
+					}
+				break;
+			}
+			temp++;
+		}
+		}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public void addBooleanModifiers(String modifierFamily, String modifier) {
 		WebElement parentElement=driver.findElement(By.id("com.paragon.sensonicstaff:id/modifier_family_rv"));
@@ -209,13 +278,16 @@ public class OutletProductOrdering extends AndroidActions{
 						radioButtonSelector.get(temp3).click();
 						break;
 					}
-					temp1+=2;
+					temp1++;
+					if(!superChildElements.get(temp1).getText().contains("$")) {
 					temp3++;
+					}
 				}
 			break;
 			}
 			temp++;
 		}
+		
 		}
 	
 	
@@ -267,8 +339,13 @@ public class OutletProductOrdering extends AndroidActions{
 			System.out.println("addon name"+superChildElements.get(0).getText());
 			radioButtonSelector.get(0).click();
 			int temp1=1;
+			List<WebElement> counterSelector = childElements.get(temp).findElements(By.className("android.widget.LinearLayout"));
+			int s4=counterSelector.size();
+			List<WebElement> counterPlusSelector=counterSelector.get(5).findElements(By.className("android.widget.ImageView"));
 			while(temp1<addonQuantity) {
-				driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/plus\"])[2]")).click();
+				System.out.println("size s4= "+s4);
+				counterPlusSelector.get(1).click();
+//				driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/plus\"])[2]")).click();
 				temp1++;
 			}
 			
@@ -276,7 +353,6 @@ public class OutletProductOrdering extends AndroidActions{
 		}
 		temp++;
 		}
-
 	}
 	
 
