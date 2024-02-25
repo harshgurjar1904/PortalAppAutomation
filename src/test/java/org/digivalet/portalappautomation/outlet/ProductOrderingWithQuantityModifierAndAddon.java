@@ -63,7 +63,7 @@ public class ProductOrderingWithQuantityModifierAndAddon extends LoginSuccessful
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
 		opo.getBookingList();
-		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);	
+		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
 	}
 	
 
