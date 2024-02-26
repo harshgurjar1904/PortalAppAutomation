@@ -25,8 +25,8 @@ public class BaseClass extends AppiumUtils{
 				prop.load(fis);
 				String ipAddress=prop.getProperty("ipAddress");
 				int portNo=Integer.parseInt(prop.getProperty("portNo"));
-				String systemUserName=prop.getProperty("systenUserName");
-				String deviceName=prop.getProperty("deviceName");
+				String systemUserName=prop.getProperty("systenUserName2");
+				String deviceName=prop.getProperty("deviceName2");
 				int duration=Integer.parseInt(prop.getProperty("duration"));
 				String appPath=System.getProperty("user.dir")+"\\Resources\\base.apk";
 				service=startAppiumServer(systemUserName,ipAddress,portNo);
