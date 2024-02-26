@@ -1,5 +1,7 @@
 package org.digivalet.portalappautomation.pageObject.android.OutletModule;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.List;
 
 import org.digivalet.portalappautomation.utils.AndroidActions;
@@ -9,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.TouchAction;
@@ -27,13 +30,13 @@ public class OutletProductOrdering extends AndroidActions{
 		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
 	}
 	
-	@AndroidFindBy(xpath="//android.view.View[@resource-id=\"com.paragon.sensonicstaff:id/row_unit_number\"]")
+	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.paragon.sensonicstaff:id/edit_unit_number\"]")
 	private WebElement unitNoFieldLocator;
 	
 	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.paragon.sensonicstaff:id/edit_order_for\"]")
 	private WebElement bookForLocator;
 	
-	@AndroidFindBy(xpath="//android.view.View[@resource-id=\"com.paragon.sensonicstaff:id/row_select_outlet\"]")
+	@AndroidFindBy(xpath="//android.widget.TextView[@resource-id=\"com.paragon.sensonicstaff:id/label_outlet_name\"]")
 	private WebElement bookFromLocator;
 	
 	@AndroidFindBy(xpath="//android.widget.RadioButton[@resource-id=\"com.paragon.sensonicstaff:id/rb_order_now\"]")
@@ -59,6 +62,11 @@ public class OutletProductOrdering extends AndroidActions{
 	private List<WebElement> bookingListLocator;
 	
 	
+//	@BeforeMethod
+//	public void goToLoginPage() {
+//		
+//	}
+	
 	
 	
 	public void findOutlet(String outletName) {
@@ -66,18 +74,25 @@ public class OutletProductOrdering extends AndroidActions{
 	}
 	
 	public void selectUnitNo(String unitNo) throws InterruptedException {
-		unitNoFieldLocator.click();
-		scrollToText(unitNo);
+		if(!unitNoFieldLocator.getText().contains(unitNo)) {
+			unitNoFieldLocator.click();
+			scrollToText(unitNo);	
+		}
+		
 	}
 	
 	public void selectResidentName(String residentName) throws InterruptedException {
+		if(!bookForLocator.getText().contains(residentName)) {
 		bookForLocator.click();
 		scrollToText(residentName);
 	}
+	}
 	
 	public void selectOutletInstance(String bookFrom) throws InterruptedException {
+		if(!bookFromLocator.getText().contains(bookFrom)) {
 		bookFromLocator.click();
 		scrollToText(bookFrom);
+	}
 	}
 	
 	public void selectNowSchedule() {
@@ -116,12 +131,15 @@ public class OutletProductOrdering extends AndroidActions{
 	}
 	
 	public void getBookingList() throws InterruptedException {
+//		scrollToBottom();
 		System.out.println("size  "+bookingListLocator.size());
 		int s=bookingListLocator.size();
 		bookingListLocator.get(s-1).click();
+		
 	}
 	
-	public void withoutAddonAndModifierBookingVerification(String unitNo,String residentName, String productName, int productQuantity, String bookFrom) {
+	public void BookingVerification(String unitNo,String residentName, String productName, int productQuantity, String bookFrom) {
+		
 		String getUnitNo=driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"com.paragon.sensonicstaff:id/label_room_name\"]")).getText();
 		String getResidentName=driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"com.paragon.sensonicstaff:id/label_resident_name\"]")).getText();
 		String getProductName=driver.findElement(By.xpath("//android.widget.TextView[@resource-id=\"com.paragon.sensonicstaff:id/label_product_name\"]")).getText().substring(0,productName.length());
@@ -140,6 +158,31 @@ public class OutletProductOrdering extends AndroidActions{
 		System.out.println("\n"+getUnitNo+getResidentName+ getProductName+getProductQuantity+getBookingFrom+"\n");
 		
 		Assert.assertEquals(isMatch, true);
+	}
+	
+	
+	
+	public void modifierAndAddonVerification(Object... params) {
+		
+		WebElement parentElement=driver.findElement(By.xpath("//androidx.recyclerview.widget.RecyclerView[@resource-id=\"com.paragon.sensonicstaff:id/addOn_modifier_rv\"]"));
+		List<WebElement> childElements = parentElement.findElements(By.className("android.widget.TextView"));
+		int size=params.length;
+		int temp=0;
+		boolean flag=true;
+		while(temp<size) {
+			String str=childElements.get(temp).getText();
+			System.out.println(str);
+			System.out.println((String)params[temp]);
+			if(!str.contains((String)params[temp])) {
+				System.out.println(str);
+				System.out.println((String)params[temp]);
+				flag=false;
+			}
+			Assert.assertTrue(flag);
+			temp++;
+		}
+		
+		
 	}
 	
 	

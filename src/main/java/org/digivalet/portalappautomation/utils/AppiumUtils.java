@@ -11,6 +11,7 @@ import org.apache.commons.io.FileUtils;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
@@ -18,7 +19,6 @@ import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 
 public class AppiumUtils {
-	
 	public List<HashMap<String,String>> getJsonData(String jsonFilePath) throws IOException{
 	
 		String jsonContent=FileUtils.readFileToString(new File(jsonFilePath),StandardCharsets.UTF_8);
@@ -36,13 +36,6 @@ public class AppiumUtils {
 		return service;
 	}
 	
-//	public void gotScreen(String s1,String s2,AndroidDriver driver) {
-//	//adb shell dumpsys window | find "mCurrentFocus" - run this command to get the package name and activity name
-//			Activity activity=new Activity("io.appium.android.apis","io.appium.android.apis.preference.PreferenceDependencies");
-//			((AndroidDriver) driver).startActivity(activity);
-//			
-//			//  mCurrentFocus=Window{694b4df u0 com.paragon.sensonicstaff/com.paragon.sensonicstaff.ui.activities.outletrequestadd.OutletRequestAddActivity}
-//	}
 	
 	
 }

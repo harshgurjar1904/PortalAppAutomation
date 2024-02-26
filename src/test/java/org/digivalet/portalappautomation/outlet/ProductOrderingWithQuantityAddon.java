@@ -20,6 +20,8 @@ public class ProductOrderingWithQuantityAddon extends LoginSuccessfully{
 	private int productQuantity;
 	private String addonName;
 	private int addonQuantity;
+	private String addonQuantity1;
+
 
 	@DataProvider
 	public Object[][] getData() throws IOException{
@@ -36,12 +38,13 @@ public class ProductOrderingWithQuantityAddon extends LoginSuccessfully{
 		productName=input.get("productName");
 		productQuantity=Integer.parseInt(input.get("productQuantity"));
 		addonName=input.get("addonName");
-		addonQuantity=Integer.parseInt(input.get("addonQuantity"));
+		addonQuantity1=input.get("addonQuantity");
+		addonQuantity=Integer.parseInt(addonQuantity1);
 		
 	}
 	
 	@Test(priority=3)
-	public void OrderWithBooleanAddon() throws InterruptedException {
+	public void OrderWithQuantityAddon() throws InterruptedException {
 		driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/navigation_bar_item_icon_view\"])[5]")).click();
 		OutletProductOrdering opo=new OutletProductOrdering(driver);
 		opo.findOutlet(outletName);
@@ -58,7 +61,8 @@ public class ProductOrderingWithQuantityAddon extends LoginSuccessfully{
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
 		opo.getBookingList();
-		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.BookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.modifierAndAddonVerification(addonQuantity1,addonName);
 		
 	}
 }

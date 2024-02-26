@@ -22,6 +22,9 @@ public class ProductOrderingWithQuantityModifierAndAddon extends LoginSuccessful
 	private int modifierQuantity;
 	private String addonName;
 	private int addonQuantity;
+	private String modifierQuantity1;
+	private String addonQuantity1;
+	
 
 	@DataProvider
 	public Object[][] getData() throws IOException{
@@ -39,9 +42,12 @@ public class ProductOrderingWithQuantityModifierAndAddon extends LoginSuccessful
 		productQuantity=Integer.parseInt(input.get("productQuantity"));
 		modifierFamily=input.get("modifierFamily");
 		modifierName=input.get("modifierName");
-		modifierQuantity=Integer.parseInt(input.get("modifierQuantity"));
+		modifierQuantity1=input.get("modifierQuantity");
+		modifierQuantity=Integer.parseInt(modifierQuantity1);
 		addonName=input.get("addonName");
-		addonQuantity=Integer.parseInt(input.get("addonQuantity"));
+		addonQuantity1=input.get("addonQuantity");
+		addonQuantity=Integer.parseInt(addonQuantity1);
+		
 	}
 	
 	@Test(priority=3)
@@ -63,7 +69,8 @@ public class ProductOrderingWithQuantityModifierAndAddon extends LoginSuccessful
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
 		opo.getBookingList();
-		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.BookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.modifierAndAddonVerification(modifierQuantity1,modifierName,addonQuantity1,addonName);
 	}
 	
 

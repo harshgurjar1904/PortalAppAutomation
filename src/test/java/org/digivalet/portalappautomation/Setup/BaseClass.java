@@ -17,6 +17,7 @@ public class BaseClass extends AppiumUtils{
 	public AndroidDriver driver;
 	public AppiumDriverLocalService service;
 	
+	
 	@BeforeClass
 	public void configorAppium() throws IOException {
 	
@@ -25,8 +26,8 @@ public class BaseClass extends AppiumUtils{
 				prop.load(fis);
 				String ipAddress=prop.getProperty("ipAddress");
 				int portNo=Integer.parseInt(prop.getProperty("portNo"));
-				String systemUserName=prop.getProperty("systenUserName2");
-				String deviceName=prop.getProperty("deviceName2");
+				String systemUserName=prop.getProperty("systenUserName1");
+				String deviceName=prop.getProperty("deviceName1");
 				int duration=Integer.parseInt(prop.getProperty("duration"));
 				String appPath=System.getProperty("user.dir")+"\\Resources\\base.apk";
 				service=startAppiumServer(systemUserName,ipAddress,portNo);

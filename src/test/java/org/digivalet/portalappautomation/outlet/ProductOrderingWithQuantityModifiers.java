@@ -21,6 +21,8 @@ public class ProductOrderingWithQuantityModifiers extends LoginSuccessfully{
 	private String modifierFamily;
 	private String modifierName;
 	private int modifierQuantity;
+	private String modifierQuantity1;
+	
 
 	@DataProvider
 	public Object[][] getData() throws IOException{
@@ -38,7 +40,8 @@ public class ProductOrderingWithQuantityModifiers extends LoginSuccessfully{
 		productQuantity=Integer.parseInt(input.get("productQuantity"));
 		modifierFamily=input.get("modifierFamily");
 		modifierName=input.get("modifierName");
-		modifierQuantity=Integer.parseInt(input.get("modifierQuantity"));
+		modifierQuantity1=input.get("modifierQuantity");
+		modifierQuantity=Integer.parseInt(modifierQuantity1);
 	}
 	@Test(priority=3)
 	public void OrderWithQuantityModifiers() throws InterruptedException {
@@ -58,7 +61,8 @@ public class ProductOrderingWithQuantityModifiers extends LoginSuccessfully{
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
 		opo.getBookingList();
-		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.BookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.modifierAndAddonVerification(modifierQuantity1,modifierName);
 		
 		
 	}
