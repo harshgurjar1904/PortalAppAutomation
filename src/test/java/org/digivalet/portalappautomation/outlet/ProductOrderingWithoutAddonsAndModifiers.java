@@ -52,8 +52,11 @@ public class ProductOrderingWithoutAddonsAndModifiers extends LoginSuccessfully{
 		opo.tapOnAddToCartButton();
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
+//		Thread.sleep(5000);
 		opo.getBookingList();
-		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);	
+		
+		opo.BookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);	
+		
 		
 	}
 }

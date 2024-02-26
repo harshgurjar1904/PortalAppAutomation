@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-02-26T00:57:18 IST" name="Default suite" finished-at="2024-02-26T00:59:16 IST" duration-ms="118106">
+  <suite started-at="2024-02-27T01:01:07 IST" name="Default suite" finished-at="2024-02-27T01:02:40 IST" duration-ms="93229">
     <groups>
     </groups>
-    <test started-at="2024-02-26T00:57:18 IST" name="Default test" finished-at="2024-02-26T00:59:16 IST" duration-ms="118106">
-      <class name="org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon">
-        <test-method is-config="true" signature="configorAppium()[pri:0, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon@54c5a2ff]" started-at="2024-02-26T00:57:18 IST" name="configorAppium" finished-at="2024-02-26T00:57:24 IST" duration-ms="6462" status="PASS">
+    <test started-at="2024-02-27T01:01:07 IST" name="Default test" finished-at="2024-02-27T01:02:40 IST" duration-ms="93229">
+      <class name="org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers">
+        <test-method is-config="true" signature="configorAppium()[pri:0, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers@6d4d66d2]" started-at="2024-02-27T01:01:07 IST" name="configorAppium" finished-at="2024-02-27T01:01:14 IST" duration-ms="6584" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configorAppium -->
-        <test-method signature="SuccessfullLogin(java.util.HashMap)[pri:1, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon@54c5a2ff]" started-at="2024-02-26T00:57:24 IST" name="SuccessfullLogin" data-provider="getLoginData" finished-at="2024-02-26T00:57:41 IST" duration-ms="16587" status="PASS">
+        <test-method signature="SuccessfullyLogin(java.util.HashMap)[pri:1, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers@6d4d66d2]" started-at="2024-02-27T01:01:14 IST" name="SuccessfullyLogin" data-provider="getLoginData" finished-at="2024-02-27T01:01:28 IST" duration-ms="13842" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -21,27 +21,27 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SuccessfullLogin -->
-        <test-method signature="dataSetter(java.util.HashMap)[pri:2, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon@54c5a2ff]" started-at="2024-02-26T00:57:41 IST" name="dataSetter" data-provider="getData" finished-at="2024-02-26T00:57:41 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- SuccessfullyLogin -->
+        <test-method signature="dataSetter(java.util.HashMap)[pri:2, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers@6d4d66d2]" started-at="2024-02-27T01:01:28 IST" name="dataSetter" data-provider="getData" finished-at="2024-02-27T01:01:28 IST" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{outletName=Bar & Kitchen Requests, outletInstance=Riverside Bistro, productQuantity=4, unitNo=4004, Tower A, modifierFamily=Choice of Cheese, addonName=Bacon, residentName=Harry Cooper, modifierQuantity=3, addonQuantity=3, modifierName=Swiss, productName=Classic Cheeseburger}]]>
+                <![CDATA[{outletName=Bar & Kitchen Requests, outletInstance=Riverside Bistro, productQuantity=1, unitNo=4004, Tower A, modifierFamily=Choice of Cheese, residentName=Harry Cooper, modifierQuantity=1, modifierName=Swiss, productName=Classic Cheeseburger}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dataSetter -->
-        <test-method signature="OrderWithQuantityAddonAndModifiers()[pri:3, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon@54c5a2ff]" started-at="2024-02-26T00:57:41 IST" name="OrderWithQuantityAddonAndModifiers" finished-at="2024-02-26T00:59:15 IST" duration-ms="94119" status="PASS">
+        <test-method signature="OrderWithBooleanModifiers()[pri:3, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers@6d4d66d2]" started-at="2024-02-27T01:01:28 IST" name="OrderWithBooleanModifiers" finished-at="2024-02-27T01:02:39 IST" duration-ms="71855" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OrderWithQuantityAddonAndModifiers -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon@54c5a2ff]" started-at="2024-02-26T00:59:15 IST" name="tearDown" finished-at="2024-02-26T00:59:16 IST" duration-ms="698" status="PASS">
+        </test-method> <!-- OrderWithBooleanModifiers -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers@6d4d66d2]" started-at="2024-02-27T01:02:39 IST" name="tearDown" finished-at="2024-02-27T01:02:40 IST" duration-ms="709" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- org.digivalet.portalappautomation.outlet.ProductOrderingWithQuantityModifierAndAddon -->
+      </class> <!-- org.digivalet.portalappautomation.outlet.ProductOrderingWithBooleanModifiers -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

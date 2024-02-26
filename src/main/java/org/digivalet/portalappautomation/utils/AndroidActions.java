@@ -1,9 +1,14 @@
 package org.digivalet.portalappautomation.utils;
 
+import java.awt.Dimension;
+
 import org.openqa.selenium.By;
+
+import com.google.common.collect.ImmutableMap;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.Activity;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
 
@@ -37,6 +42,17 @@ public class AndroidActions extends AppiumUtils {
 		 .perform();
 	}
 	
-	
-	
+//	public void scrollToBottom() {
+//        org.openqa.selenium.Dimension size = driver.manage().window().getSize();
+//        int startX = size.width / 2;
+//        int startY = (int) (size.height * 0.8); // Start from 80% of the height
+//        int endY = (int) (size.height * 0.2);   // End at 20% of the height
+//
+//        TouchAction touchAction = new TouchAction(driver);
+//        touchAction.press(PointOption.point(startX, startY))
+//                   .waitAction()
+//                   .moveTo(PointOption.point(startX, endY))
+//                   .release()
+//                   .perform();
+//    }
 }

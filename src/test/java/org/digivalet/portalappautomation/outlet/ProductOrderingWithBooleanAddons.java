@@ -54,7 +54,8 @@ public class ProductOrderingWithBooleanAddons extends LoginSuccessfully {
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
 		opo.getBookingList();
-		opo.withoutAddonAndModifierBookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.BookingVerification(unitNo,residentName,productName,productQuantity,bookFrom);
+		opo.modifierAndAddonVerification("1",addonName);
 		
 		
 	}
