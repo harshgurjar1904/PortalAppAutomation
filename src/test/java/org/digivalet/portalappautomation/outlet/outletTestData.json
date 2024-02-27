@@ -81,5 +81,16 @@
         "modifierQuantity":"3",
         "addonName":"Bacon",
         "addonQuantity":"3"
+    },
+    {
+        "outletName":"Bar & Kitchen Requests",
+        "outletInstance":"Riverside Bistro",
+        "unitNo":"4004, Tower A",
+        "residentName":"Harry Cooper",
+        "productName":"Classic Cheeseburger",
+        "productQuantity":"1",
+        "modifierFamily":"Choice of Cheese",
+        "modifierQuantity":"1",
+        "modifierName":"Swiss"
     }
 ]

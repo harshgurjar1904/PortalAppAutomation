@@ -53,6 +53,7 @@ public class ProductOrderingWithBooleanModifiers extends LoginSuccessfully{
 		opo.increaseCounterTo(productQuantity);
 		opo.addBooleanModifiers(modifierFamily, modifierName);
 		opo.tapOnAddToCartButton();
+		Thread.sleep(2000);
 		opo.tapOnCartButton(1074,174);
 		opo.tapOnAddToCartButton();
 		opo.getBookingList();

@@ -2,6 +2,8 @@ package org.digivalet.portalappautomation.pageObject.android.OutletModule;
 
 import static org.testng.Assert.assertEquals;
 
+import com.google.common.collect.ImmutableMap;
+import org.openqa.selenium.JavascriptExecutor;
 import java.util.List;
 
 import org.digivalet.portalappautomation.utils.AndroidActions;
@@ -111,9 +113,9 @@ public class OutletProductOrdering extends AndroidActions{
 	}
 
 	public void tapOnCartButton(int x, int y) {
-        tapOnCoordinate(x,y);
+//        tapOnCoordinate(x,y);s
         
-//		cartButtonLocator.click();
+		cartButtonLocator.click();
 	}
 	
 	public void increaseCounterTo(int value) {
@@ -184,9 +186,10 @@ public class OutletProductOrdering extends AndroidActions{
 		
 		
 	}
-	
-	
-	
+
+
+
+
 	public void addQuantityModifiers(String modifierFamily, String modifierName, int modifierQuantity) throws InterruptedException {
 		WebElement parentElement=driver.findElement(By.id("com.paragon.sensonicstaff:id/modifier_family_rv"));
 		List<WebElement> childElement = parentElement.findElements(By.className("android.view.ViewGroup"));
@@ -201,37 +204,36 @@ public class OutletProductOrdering extends AndroidActions{
 
 			System.out.println("\ns1 "+s1);
 			System.out.println("\ns2 "+s2);
-			
+
 			System.out.println(superChildElements.get(0).getText());
 			if(superChildElements.get(0).getText().contains(modifierFamily)) {
-			int temp1=2;
-			int temp2=0;
-					while(temp1<s1) {
-						String getmodifierName=superChildElements.get(temp1).getText();
-						if(getmodifierName.contains(modifierName)) {
-							System.out.println("getmodifierName "+getmodifierName);
-							radioButtonSelector.get(temp2).click();
-							int temp3=1;
-							
-							while(temp3<modifierQuantity) {
-								driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/plus\"])[2]")).click();
-								temp3++;
-							}
-							break;
+				int temp1=2;
+				int temp2=0;
+				while(temp1<s1) {
+					String getmodifierName=superChildElements.get(temp1).getText();
+					if(getmodifierName.contains(modifierName)) {
+						System.out.println("getmodifierName "+getmodifierName);
+						radioButtonSelector.get(temp2).click();
+						int temp3=1;
+
+						while(temp3<modifierQuantity) {
+							driver.findElement(By.xpath("(//android.widget.ImageView[@resource-id=\"com.paragon.sensonicstaff:id/plus\"])[2]")).click();
+							temp3++;
 						}
-						if(!superChildElements.get(temp1).getText().contains("$")) {
-						temp2++;
-						}
-						
-						temp1+=1;
+						break;
 					}
+					if(!superChildElements.get(temp1).getText().contains("$")) {
+						temp2++;
+					}
+
+					temp1+=1;
+				}
 				break;
 			}
 			temp++;
 		}
-		}
-	
-	
+	}
+
 	
 	
 	
@@ -290,14 +292,10 @@ public class OutletProductOrdering extends AndroidActions{
 		}
 	
 	
-	
-	
-	
-	
-	
-	
+
 	
 	public void addBooleanModifiers(String modifierFamily, String modifier) {
+
 		WebElement parentElement=driver.findElement(By.id("com.paragon.sensonicstaff:id/modifier_family_rv"));
 		List<WebElement> childElement = parentElement.findElements(By.className("android.view.ViewGroup"));
 		int modifierFamilyNo = childElement.size();
@@ -336,6 +334,7 @@ public class OutletProductOrdering extends AndroidActions{
 	
 	
 	public void addBooleanAddon(String addonName) {
+//		scroll(0.5,0.5);
 		WebElement parentElement=driver.findElement(By.id("com.paragon.sensonicstaff:id/add_ons_rv"));
 		
 		List<WebElement> childElements = parentElement.findElements(By.className("android.widget.LinearLayout"));
@@ -361,8 +360,10 @@ public class OutletProductOrdering extends AndroidActions{
 
 	}
 	
-	public void addQuantityAddon(String addonName, int addonQuantity) {
-		
+	public void addQuantityAddon(String addonName, int addonQuantity) throws InterruptedException {
+//
+//		Thread.sleep(3000);
+		scroll(542,348,480,2024);
 		WebElement parentElement=driver.findElement(By.id("com.paragon.sensonicstaff:id/add_ons_rv"));
 		
 		List<WebElement> childElements = parentElement.findElements(By.className("android.widget.LinearLayout"));

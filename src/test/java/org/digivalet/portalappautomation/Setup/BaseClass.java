@@ -2,7 +2,7 @@ package org.digivalet.portalappautomation.Setup;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.time.Duration;
+import java.time.*;
 import java.util.Properties;
 
 import org.digivalet.portalappautomation.utils.AppiumUtils;
@@ -26,8 +26,8 @@ public class BaseClass extends AppiumUtils{
 				prop.load(fis);
 				String ipAddress=prop.getProperty("ipAddress");
 				int portNo=Integer.parseInt(prop.getProperty("portNo"));
-				String systemUserName=prop.getProperty("systenUserName1");
-				String deviceName=prop.getProperty("deviceName1");
+				String systemUserName=prop.getProperty("systenUserName2");
+				String deviceName=prop.getProperty("deviceName2");
 				int duration=Integer.parseInt(prop.getProperty("duration"));
 				String appPath=System.getProperty("user.dir")+"\\Resources\\base.apk";
 				service=startAppiumServer(systemUserName,ipAddress,portNo);
